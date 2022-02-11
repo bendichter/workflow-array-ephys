@@ -2,7 +2,8 @@ import datajoint as dj
 from element_animal import subject
 from element_lab import lab
 from element_session import session
-from element_array_ephys import probe, ephys
+from element_array_ephys import probe
+from element_array_ephys import ephys_no_curation as ephys
 
 from element_animal.subject import Subject
 from element_lab.lab import Source, Lab, Protocol, User, Project
@@ -20,6 +21,7 @@ db_prefix = dj.config['custom'].get('database.prefix', '')
 
 lab.activate(db_prefix + 'lab')
 
+Experimenter = lab.User
 subject.activate(db_prefix + 'subject', linking_module=__name__)
 
 session.activate(db_prefix + 'session', linking_module=__name__)
@@ -40,3 +42,5 @@ class SkullReference(dj.Lookup):
 ephys.activate(db_prefix + 'ephys', 
                db_prefix + 'probe', 
                linking_module=__name__)
+
+# from element_array_ephys.export.nwb.nwb import ecephys_session_to_nwb, write_nwb
