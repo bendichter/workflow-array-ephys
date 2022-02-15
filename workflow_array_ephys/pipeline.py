@@ -6,6 +6,7 @@ from element_array_ephys import probe
 from element_array_ephys import ephys_no_curation as ephys
 
 from element_animal.subject import Subject
+
 from element_lab.lab import Source, Lab, Protocol, User, Project
 from element_session.session import Session
 
@@ -24,6 +25,9 @@ lab.activate(db_prefix + 'lab')
 Experimenter = lab.User
 subject.activate(db_prefix + 'subject', linking_module=__name__)
 
+from element_animal.export.nwb import subject_to_nwb
+from element_lab.export.nwb import element_lab_to_nwb_dict
+
 session.activate(db_prefix + 'session', linking_module=__name__)
 
 
@@ -38,6 +42,7 @@ class SkullReference(dj.Lookup):
 
 
 # Activate "ephys" schema ------------------------------------------------------
+from session.export.nwb import session_to_nwb
 
 ephys.activate(db_prefix + 'ephys', 
                db_prefix + 'probe', 
