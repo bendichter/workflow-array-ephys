@@ -42,7 +42,7 @@ class SkullReference(dj.Lookup):
 
 
 # Activate "ephys" schema ------------------------------------------------------
-from session.export.nwb import session_to_nwb
+from element_session.export.nwb import session_to_nwb
 
 ephys.activate(db_prefix + 'ephys', 
                db_prefix + 'probe', 
