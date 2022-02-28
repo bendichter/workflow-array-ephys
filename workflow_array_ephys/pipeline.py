@@ -48,4 +48,4 @@ ephys.activate(db_prefix + 'ephys',
                db_prefix + 'probe', 
                linking_module=__name__)
 
-# from element_array_ephys.export.nwb.nwb import ecephys_session_to_nwb, write_nwb
+from element_array_ephys.export.nwb.nwb import ecephys_session_to_nwb, write_nwb
