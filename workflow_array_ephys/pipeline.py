@@ -8,7 +8,7 @@ from element_array_ephys import ephys_no_curation as ephys
 from element_animal.subject import Subject
 
 from element_lab.lab import Source, Lab, Protocol, User, Project
-from element_session.session import Session
+from element_session import session
 
 from .paths import get_ephys_root_data_dir, get_session_directory
 
